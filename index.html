@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <!-- If you delete this meta tag World War Z will become a reality -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORF SIFT Cloud Offloading Demo</title>
+
+  <!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
+  <link rel="stylesheet" href="./bower_components/foundation/css/normalize.css">
+  <link rel="stylesheet" href="./bower_components/foundation/css/foundation.css">
+
+  <!-- If you are using the gem version, you need this only -->
+  <!-- <link rel="stylesheet" href="./bower_components/foundation/css/app.css"> -->
+
+  <script src="./bower_components/foundation/js/vendor/modernizr.js"></script>
+
+</head>
+<body>
+
+<nav class="tab-bar">
+  <div class="left-small">
+    <a role="button" aria-expanded="false" aria-controls="idOfLeftMenu" class="left-off-canvas-toggle menu-icon" ><span></span></a>
+  </div>
+  <section class="middle tab-bar-section">
+    <h1 class="title">ORF SIFT Cloud Offloading Demo</h1>
+  </section>
+</nav>
+
+<div class="row">
+  <div class="small-6 large-6 columns">
+  	<h1>Android Processed Image</h1>
+	<div id="android-processed-img" class="panel">
+	</div>	
+  </div>
+  <div class="small-6 large-6 columns">
+  	<h1>Cloud Processed Image</h1>
+    <div id="cloud-processed-img" class="panel">
+	</div>		
+  </div>
+</div>
+<div>
+	<a href="javascript:void(0)" onclick="reset();" class="button expand">Reset</a>
+</div>
+	
+  <script src="./bower_components/foundation/js/vendor/jquery.js"></script>
+  <script src="./bower_components/foundation/js/foundation.min.js"></script>
+  <script src="./js/imageRenderer.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

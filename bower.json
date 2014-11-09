@@ -1,0 +1,11 @@
+{
+  "name": "ORF-SIFT-Web",
+  "version": "0.0.0",
+  "authors": [
+    "Shin Usami"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "foundation": "~5.4.7"
+  }
+}
