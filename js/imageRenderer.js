@@ -1,11 +1,3 @@
-var settings = {};
-settings.serverUrl = "http://127.0.0.1:3000/";
-
-window.setInterval(function() {
-	renderAndroidImage();
-	renderCloudImage();
-}, 100);
-
 function renderAndroidImage() {
 	var stateUrl = {
 		"w": "img/waiting.gif",
@@ -21,6 +13,19 @@ function renderAndroidImage() {
 
 			if (stateUrl[state]) {
 				$('#android-processed-img').prepend('<img src="' + stateUrl[state] + '" />');
+			}
+
+			if (state == "i") {
+				$.ajax({
+					url: settings.serverUrl + "getandroidtime",
+					cache: false,
+					success: function(ms) {
+						ms = parseFloat(ms);
+						var sec = ms / 1000;
+						processingTime.android = sec;
+						loadGraph();
+					}
+				});
 			}
 
 		}
@@ -43,6 +48,19 @@ function renderCloudImage() {
 
 			if (stateUrl[state]) {
 				$('#cloud-processed-img').prepend('<img src="' + stateUrl[state] + '" />');
+			}
+
+			if (state == "i") {
+				$.ajax({
+					url: settings.serverUrl + "getcloudtime",
+					cache: false,
+					success: function(ms) {
+						ms = parseFloat(ms);
+						var sec = ms / 1000;
+						processingTime.cloud = sec;
+						loadGraph();
+					}					
+				});
 			}
 
 		}

@@ -11,6 +11,9 @@ var cloud = {};
 android.state = "w";
 cloud.state = "w";
 
+android.processingTime = 0;
+cloud.processingTime = 0;
+
 console.log("Creating server for localhost at port 3000...");
 http.createServer(function (request, response) {
 	var uri = url.parse(request.url).pathname,
@@ -20,6 +23,7 @@ http.createServer(function (request, response) {
     uri = uri.slice(1, uri.length);
     var uriArray = uri.split('/');
     var method = uriArray[0];
+    var param = uriArray[1]
 
     var header = {
         "Access-Control-Allow-Origin":"*",
@@ -57,7 +61,31 @@ http.createServer(function (request, response) {
 			response.writeHead(200, header);
             response.write("success");
             response.end();
-		}
+		},
+		"setandroidtime": function() {
+			android.processingTime = param;
+			response.writeHead(200, header);
+			response.write("success");
+			response.end();
+			console.log(android.processingTime);
+		},
+		"getandroidtime": function() {
+			response.writeHead(200, header);
+			response.write(String(android.processingTime));
+			response.end();
+		},
+		"setcloudtime": function() {
+			cloud.processingTime = param;
+			response.writeHead(200, header);
+			response.write("success");
+			response.end();
+			console.log("cloud: " + cloud.processingTime);
+		},
+		"getcloudtime": function() {
+			response.writeHead(200, header);
+			response.write(String(cloud.processingTime));
+			response.end();
+		}	
 
     };
 
